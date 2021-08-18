@@ -9,7 +9,7 @@ if (isset($_POST["login"])) {
     $username = mysqli_real_escape_string($conn, $_POST["username"]);
     $password = mysqli_real_escape_string($conn, $_POST["password"]);
 
-    $result = mysqli_query($conn, "SELECT * FROM tb_user WHERE username = '$username'");
+    $result = mysqli_query($conn, "SELECT * FROM tb_user INNER JOIN tb_roles ON tb_user.id_user = tb_roles.id_roles WHERE username = '$username'");
 
     if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);

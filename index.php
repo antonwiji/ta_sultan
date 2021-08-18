@@ -62,12 +62,12 @@ if( isset($_POST["cari"]) ) {
           </a>
          
         </li>
-       
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2 rounded-5" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <div class="akun" style="color: #ffff;">
+      
+     <h5>Status Login : <?= $_SESSION["login"]["jabatan"] ?></h5>
+
+      </div>
     </div>
   </div>
 </nav>
@@ -166,8 +166,6 @@ if( isset($_POST["cari"]) ) {
 		<td><?= $row["tgl_masuk"]; ?></td>
     <td><?= $row["stock"]; ?></td>
    <td><a class="btn btn-primary" href="detail.php?id=<?= $row["id"]; ?>">Detail</a> </td>
-
-	
 		
 	</tr>
 	<?php $i++; ?>
