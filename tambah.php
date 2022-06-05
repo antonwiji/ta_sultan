@@ -73,31 +73,66 @@ if( isset($_POST["submit"]) ) {
 	<div class="mb-3">
 <div class="container">
 <form class="row g-3">
-  <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">Nama Barang</label>
-    <input type="hidden" name="id" value="<?=$barang["id"]+1; ?> ">
-    <input type="text" name="nama_barang" class="form-control" id="inputEmail4" require>
+  <div class="add-items">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Nama Barang</label>
+          <input type="hidden" name="id" value="<?=$barang["id"]+1; ?> ">
+          <input type="text" name="nama_barang1" class="form-control" id="inputEmail4" require placeholder="Nama Barang">
+        </div>
+        <div class="col-md-1">
+          <label for="inputPassword4" class="form-label">Stock</label>
+          <input type="text" name="stock" class="form-control"  placeholder="QTY">
+        </div>
+        <div class="col-md-1">
+          <span class="btn btn-success mt-4" type="submit" id="add-items">+</span>  
+        </div>
+      </div>
+      <div class="col-12">
+        <label for="inputAddress" class="form-label">Upload Gambar</label>
+        <input type="file" name="gambar" class="form-control" id="inputAddress" placeholder="1234 Main St">
+      </div>
   </div>
   <div class="col-md-6">
-    <label for="inputPassword4" class="form-label">Dekskripsi</label>
-    <input type="text" name="deksripsi" class="form-control" id="inputPassword4">
-  </div>
-  <div class="col-md-6">
-    <label for="inputPassword4" class="form-label">Stock</label>
-    <input type="text" name="stock" class="form-control" id="inputPassword4">
-  </div>
-  <div class="col-12">
-    <label for="inputAddress" class="form-label">Upload Gambar</label>
-    <input type="file" name="gambar" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        <label for="inputPassword4" class="form-label">Dekskripsi</label>
+        <input type="text" name="deksripsi" class="form-control" >
   </div>
   <div class="col-12 mt-2">
-    <a class="btn btn-primary" href="http://localhost/sultan/">Kembali</a>
-    <button type="submit" name="submit" class="btn btn-success">Tambah Data</button>
-  </div>
-
+        <a class="btn btn-primary" href="http://localhost/sultan/">Kembali</a>
+        <button type="submit" name="submit" class="btn btn-success">Tambah Data</button>
+      </div>
 		
 	</form>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <script>
+
+    var i = 1 ;
+    $(document).ready(function(){
+      $("#add-items").click(function(){
+        i++;
+        $(".add-items").append(`
+        <p>item #${i}</p>
+        <div class="row">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Nama Barang</label>
+          <input type="text" name="nama_barang${i}" class="form-control" id="inputEmail4" require placeholder="Nama Barang">
+        </div>
+        <div class="col-md-1">
+          <label for="inputPassword4" class="form-label">Stock</label>
+          <input type="text" name="stock${i}" class="form-control"  placeholder="QTY">
+        </div>
+      </div>
+      <div class="col-12">
+        <label for="inputAddress" class="form-label">Upload Gambar</label>
+        <input type="file" name="gambar${i}" class="form-control" id="inputAddress" placeholder="1234 Main St">
+      </div>
+        `);
+      });
+    });
+
+  </script>
 </div>
 </body>
 </html>

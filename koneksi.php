@@ -87,8 +87,6 @@ function upload(){
 	move_uploaded_file($tmpName, 'img/' . $namaFileBaru);
 
 	return $namaFileBaru;
-
-
 }
 
 function ubah($data) {

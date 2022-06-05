@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2021 at 05:06 AM
+-- Generation Time: Aug 18, 2021 at 03:04 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.3.28
 
@@ -42,7 +42,8 @@ CREATE TABLE `barang` (
 
 INSERT INTO `barang` (`id`, `nama_barang`, `deksripsi`, `tgl_masuk`, `stock`, `gambar`) VALUES
 (22, 'kursi panjang', 'kursi panjang untuk lobi kantor', '2021-07-12', 2, '60ec121062a2e.jpg'),
-(25, 'almari ', 'ini adalah almari', '2021-07-12', 3, '60ec1ddae9708.jpg');
+(25, 'almari ', 'ini adalah almari', '2021-07-12', 3, '60ec1ddae9708.jpg'),
+(26, 'kojoju iiu', 'iuiu  iuuiuiu', '2021-08-13', 3, '611671234d6b8.jpg');
 
 -- --------------------------------------------------------
 
@@ -69,6 +70,25 @@ INSERT INTO `tambah_barang` (`id`, `nama_barang`, `deskripsi`, `tgl_masuk`, `gam
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_roles`
+--
+
+CREATE TABLE `tb_roles` (
+  `id_roles` int(11) NOT NULL,
+  `jabatan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_roles`
+--
+
+INSERT INTO `tb_roles` (`id_roles`, `jabatan`) VALUES
+(1, 'Admin'),
+(2, 'Pemimpin');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_user`
 --
 
@@ -83,7 +103,8 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `username`, `password`) VALUES
-(1, 'admin', 'admin');
+(1, 'admin', 'admin'),
+(2, 'sultan', '123123');
 
 -- --------------------------------------------------------
 
@@ -141,7 +162,7 @@ ALTER TABLE `tambah_barang`
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
